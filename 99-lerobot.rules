@@ -1,0 +1,12 @@
+# LeRobot SO-101 persistent device symlinks
+# Install: sudo cp 99-lerobot.rules /etc/udev/rules.d/ && sudo udevadm control --reload-rules && sudo udevadm trigger
+
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d3", ATTRS{serial}=="5AE6053416", SYMLINK+="lerobot/left_leader"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d3", ATTRS{serial}=="5AE6082430", SYMLINK+="lerobot/left_follower"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d3", ATTRS{serial}=="5AE6081421", SYMLINK+="lerobot/right_leader"
+SUBSYSTEM=="tty", ATTRS{idVendor}=="1a86", ATTRS{idProduct}=="55d3", ATTRS{serial}=="5AE6081116", SYMLINK+="lerobot/right_follower"
+
+# Cameras
+SUBSYSTEM=="video4linux", ATTRS{idVendor}=="1e45", ATTRS{idProduct}=="8022", ATTRS{serial}=="200910120001", ATTR{index}=="0", SYMLINK+="lerobot/cam_left_wrist"
+SUBSYSTEM=="video4linux", ATTRS{idVendor}=="32e6", ATTRS{idProduct}=="9211",                                ATTR{index}=="0", SYMLINK+="lerobot/cam_right_wrist"
+SUBSYSTEM=="video4linux", ATTRS{idVendor}=="046d", ATTRS{idProduct}=="082d", ATTRS{serial}=="6FC73FAF",    ATTR{index}=="0", SYMLINK+="lerobot/cam_right_top"
