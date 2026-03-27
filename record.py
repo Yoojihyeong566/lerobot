@@ -15,8 +15,12 @@ Usage:
 
 import argparse
 import logging
+import os
 import time
 from pathlib import Path
+
+# Use calibration files bundled in this repo (overrides ~/.cache/huggingface/lerobot/calibration)
+os.environ.setdefault("HF_LEROBOT_CALIBRATION", str(Path(__file__).parent / "calibration"))
 
 # ── Robot configs ──────────────────────────────────────────────────────────────
 from lerobot.robots.bi_so_follower.config_bi_so_follower import BiSOFollowerConfig

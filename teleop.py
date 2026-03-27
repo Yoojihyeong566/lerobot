@@ -7,6 +7,12 @@ Usage:
   python teleop.py --fps 30 --duration 120
 """
 
+import os
+from pathlib import Path
+
+# Use calibration files bundled in this repo (overrides ~/.cache/huggingface/lerobot/calibration)
+os.environ.setdefault("HF_LEROBOT_CALIBRATION", str(Path(__file__).parent / "calibration"))
+
 from lerobot.robots.bi_so_follower.config_bi_so_follower import BiSOFollowerConfig
 from lerobot.robots.so_follower.config_so_follower import SOFollowerConfig
 from lerobot.teleoperators.bi_so_leader.config_bi_so_leader import BiSOLeaderConfig
